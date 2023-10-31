@@ -26,7 +26,7 @@ jobs:
             REMOTE: 'https://gitext.nb.no/tilrettelagt-litteratur/test1.git'
             GIT_USERNAME: test1
             GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }
-        - name: remove .github
+        - name: remove github
           shell: bash
-          run : git rm -R .github/workflows
+          run: git rm -R .github/workflows
   

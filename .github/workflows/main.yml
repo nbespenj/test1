@@ -1,0 +1,28 @@
+name: Mirroring
+
+on: [push, delete]
+
+jobs:
+  to_gitlab:
+    runs-on: ubuntu-latest
+    steps:                                              # <-- must use actions/checkout before mirroring!
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        - uses: yesolutions/mirror-action@master
+          with:
+            REMOTE: 'https://gitext.nb.no/tilrettelagt-litteratur/test1.git'
+            GIT_USERNAME: test1
+            GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+
+  to_codecommit:                                        # <-- different jobs are executed in parallel.
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        - uses: yesolutions/mirror-action@master
+          with:
+            REMOTE: 'https://gitext.nb.no/tilrettelagt-litteratur/test1.git'
+            GIT_USERNAME: test1
+            GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}

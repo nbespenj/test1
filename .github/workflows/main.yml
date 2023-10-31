@@ -28,5 +28,5 @@ jobs:
             GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
         - name: remove github
           shell: bash
-          run: git rm -R .github/workflows
+          run: git rm -r .github/workflows
   

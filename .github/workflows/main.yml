@@ -26,6 +26,4 @@ jobs:
             REMOTE: 'https://gitext.nb.no/tilrettelagt-litteratur/test1.git'
             GIT_USERNAME: test1
             GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
-        - run: git rm -r .github
-          
-    
+        - run: git rm -r .github/workflows
